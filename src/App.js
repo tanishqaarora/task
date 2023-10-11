@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+import { rootReducer } from './reducers';
+import { countries } from './countries';
+import { states } from './states';
+import CountrySelector from './CountrySelector';
 
-function App() {
-  return (
+const store = createStore(combineReducers({ rootReducer }));
+
+const App = () => (
+  <Provider store={store}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CountrySelector countries={countries} states={states} />
     </div>
-  );
-}
+  </Provider>
+);
 
 export default App;

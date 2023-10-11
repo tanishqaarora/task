@@ -3,5 +3,3 @@ export const countries = [
     { id: 2, name: 'USA' },
     { id: 3, name: 'Canada' },
 ];
-
-  
